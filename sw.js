@@ -7,7 +7,8 @@ self.addEventListener('install', function (event) {
                 '/style.css',
                 '/script.js',
                 '/icon-192x192.png',
-                '/icon-512x512.png'
+                '/icon-512x512.png',
+                '/manifest.json'
             ]);
         })
     );
@@ -19,4 +20,9 @@ self.addEventListener('fetch', function (event) {
             return response || fetch(event.request);
         })
     );
+});
+
+// activate service worker
+self.addEventListener('activate', (evt) => {
+	console.log('service worker has been activated');
 });
